@@ -1,11 +1,18 @@
+import requests
 import subprocess
 import json
-import requests
+import os
+from dotenv import load_dotenv
 
-GITHUB_USER = "username"
-FORGEJO_USER = "another_username"
-FORGEJO_URL = "https://URLshouldbeHERE"
-FORGEJO_TOKEN = "yyy"
+# Charger les variables d'environnement
+load_dotenv()
+
+# Lire les variables depuis .env
+GITHUB_USER = os.getenv("GITHUB_USER")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+FORGEJO_USER = os.getenv("FORGEJO_USER")
+FORGEJO_TOKEN = os.getenv("FORGEJO_TOKEN")
+FORGEJO_URL = os.getenv("FORGEJO_URL")
 
 # 1. Lister les repos GitHub avec visibilité
 result = subprocess.run(
